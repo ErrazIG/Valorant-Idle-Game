@@ -73,7 +73,7 @@ const GuessAgentPage = () => {
 
     fetchAgents();
   }, []);
-  console.log(agentGuess);
+  // console.log(agentGuess);
   return (
     <>
       <div className={style.gameAgent}>
