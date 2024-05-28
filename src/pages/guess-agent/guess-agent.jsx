@@ -9,14 +9,16 @@ const GuessAgentPage = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedAgent, setSelectedAgent] = useState([]);
   const [agentGuess, setAgentGuess] = useState({});
+  const [isWinner, setIsWinner] = useState(false);
+
+  // Cette fonction est déplacée ici pour être accessible dans resetGame
+  const getRandomAgent = () => {
+    const agents = data.agents;
+    const randomIndex = Math.floor(Math.random() * agents.length);
+    return agents[randomIndex];
+  };
 
   useEffect(() => {
-    const getRandomAgent = () => {
-      const agents = data.agents;
-      const randomIndex = Math.floor(Math.random() * agents.length);
-      return agents[randomIndex];
-    };
-
     setAgentGuess(getRandomAgent());
   }, []);
 
@@ -40,10 +42,18 @@ const GuessAgentPage = () => {
       );
       if (foundAgent) {
         setSelectedAgent([...selectedAgent, foundAgent]);
+        setIsWinner(agentGuess.nom === foundAgent.nom);
       }
     } else {
       console.error("La valeur d'entrée est undefined.");
     }
+  };
+
+  // Fonction pour réinitialiser le jeu
+  const resetGame = () => {
+    setSelectedAgent([]);
+    setAgentGuess(getRandomAgent());
+    setIsWinner(false);
   };
 
   useEffect(() => {
@@ -73,12 +83,20 @@ const GuessAgentPage = () => {
 
     fetchAgents();
   }, []);
-  // console.log(agentGuess);
+  console.log(agentGuess);
+
   return (
     <>
       <div className={style.gameAgent}>
         <h2 className={style.gameTitle}>Guess The Agent</h2>
-        <AutoCompleteInput suggestions={suggestions} onSubmit={handleSubmit} />
+        <AutoCompleteInput
+          suggestions={suggestions}
+          onSubmit={handleSubmit}
+          disabled={isWinner}
+        />
+        <button onClick={resetGame} className={style.replayButton}>
+          Rejouer
+        </button>
         <div className="table-container">
           <table>
             <thead>
@@ -97,7 +115,6 @@ const GuessAgentPage = () => {
                   return (
                     <tr key={index}>
                       <img className={style.imgTable} src={agent.url} alt="" />
-                      <td className={style[match.nom]}>{agent.nom}</td>
                       <td className={style[match.genre]}>{agent.genre}</td>
                       <td className={style[match.espèce]}>{agent.espèce}</td>
                       <td className={style[match.rôle]}>{agent.rôle}</td>

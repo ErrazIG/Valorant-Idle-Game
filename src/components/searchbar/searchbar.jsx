@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import style from "./searchbar.module.css";
 
-const Searchbar = ({ suggestions, onSubmit }) => {
+const Searchbar = ({ suggestions, onSubmit, disabled }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [emptyInputMessage, setEmptyInputMessage] = useState("");
@@ -84,6 +84,7 @@ const Searchbar = ({ suggestions, onSubmit }) => {
         className={`${style.input} ${setActiveBorderClass(
           filteredSuggestions
         )}`} // Add style.activeBorder class to input element
+        disabled={disabled}
       />
       <div className={style.suggestions}>
         {filteredSuggestions.map((suggestion, index) => (
@@ -103,6 +104,12 @@ const Searchbar = ({ suggestions, onSubmit }) => {
 Searchbar.propTypes = {
   suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSubmit: PropTypes.func.isRequired,
+};
+
+Searchbar.propTypes = {
+  suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  disabled: PropTypes.bool, // Add this line for the 'disabled' prop validation
 };
 
 export default Searchbar;
