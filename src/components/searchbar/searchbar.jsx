@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import style from "./searchbar.module.css";
 
-const AutoCompleteInput = ({ suggestions }) => {
+const Searchbar = ({ suggestions, onSubmit }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [emptyInputMessage, setEmptyInputMessage] = useState("");
@@ -39,6 +39,7 @@ const AutoCompleteInput = ({ suggestions }) => {
     } else {
       setEmptyInputMessage("");
       setNotFoundMessage("");
+      onSubmit(input); // Trigger onSubmit callback with input value
     }
     setUserInput("");
     setFilteredSuggestions([]);
@@ -56,11 +57,15 @@ const AutoCompleteInput = ({ suggestions }) => {
   };
 
   const setActiveBorderClass = (suggestions) => {
-    return suggestions.length > 0 ? style.activeBorder : ""; // Ajoute la classe style.activeBorder si des suggestions existent, sinon retourne une chaîne vide
+    return suggestions.length > 0 ? style.activeBorder : ""; // Add style.activeBorder class if suggestions exist, otherwise return empty string
   };
 
   return (
-    <div className={style.container}>
+    <div
+      className={`${style.container} ${setActiveBorderClass(
+        filteredSuggestions
+      )}`}
+    >
       {emptyInputMessage && (
         <div className={style.message}>{emptyInputMessage}</div>
       )}
@@ -75,7 +80,7 @@ const AutoCompleteInput = ({ suggestions }) => {
         placeholder="Name an agent..."
         className={`${style.input} ${setActiveBorderClass(
           filteredSuggestions
-        )}`} // Ajoute la classe style.activeBorder à l'élément input
+        )}`} // Add style.activeBorder class to input element
       />
       <div className={style.suggestions}>
         {filteredSuggestions.map((suggestion, index) => (
@@ -92,8 +97,9 @@ const AutoCompleteInput = ({ suggestions }) => {
   );
 };
 
-AutoCompleteInput.propTypes = {
+Searchbar.propTypes = {
   suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
-export default AutoCompleteInput;
+export default Searchbar;
