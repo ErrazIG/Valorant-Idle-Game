@@ -1,5 +1,5 @@
 .homeInfoText {
-  margin: 1.5em 0;
+  margin-bottom: 1.5em;
 }
 
 .gameList {
@@ -14,7 +14,7 @@
 }
 
 .gameCard {
-  width: 300px;
+  width: 270px;
   height: 180px;
   padding: 1em;
   border: 1px solid aliceblue;
@@ -24,6 +24,7 @@
   align-items: center;
   text-align: center;
   transition: transform 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.525);
 }
 
 .cardText {
