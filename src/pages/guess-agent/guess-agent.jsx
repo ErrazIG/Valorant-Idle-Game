@@ -15,7 +15,9 @@ const GuessAgentPage = () => {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const response = await axios.get("https://valorant-api.com/v1/agents");
+        const response = await axios.get(
+          "https://valorant-api.com/v1/agents?isPlayableCharacter=true"
+        );
         if (response.status === 200) {
           console.log(response.data); // Affichez les données reçues pour vérifier leur structure
           if (Array.isArray(response.data.data)) {
