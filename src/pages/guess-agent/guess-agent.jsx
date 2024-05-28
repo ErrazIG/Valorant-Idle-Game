@@ -7,6 +7,11 @@ const GuessAgentPage = () => {
   const [agents, setAgents] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
+  const handleSubmit = (inputValue) => {
+    // Faire quelque chose avec la valeur de l'entrée
+    console.log("Valeur de l'entrée:", inputValue);
+  };
+
   useEffect(() => {
     const fetchAgents = async () => {
       try {
@@ -40,7 +45,7 @@ const GuessAgentPage = () => {
     <>
       <div className={style.gameAgent}>
         <h2 className={style.gameTitle}>Guess The Agent</h2>
-        <AutoCompleteInput suggestions={suggestions} />
+        <AutoCompleteInput suggestions={suggestions} onSubmit={handleSubmit} />
       </div>
     </>
   );
