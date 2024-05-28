@@ -34,3 +34,8 @@ main {
   font-family: "poppins", sans-serif;
   padding: 2em;
 }
+
+.homeLink {
+  text-decoration: none;
+  color: aliceblue;
+}

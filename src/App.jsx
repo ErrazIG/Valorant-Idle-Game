@@ -1,11 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <>
       <header>
-        <h1>VALOLODLE</h1>
+        <Link className="homeLink" to="/">
+          <h1>VALOLODLE</h1>
+        </Link>
       </header>
       <main>
         <Outlet />
