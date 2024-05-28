@@ -12,6 +12,7 @@
 body {
   background-color: #2d3d59;
   color: aliceblue;
+  user-select: none;
 }
 header {
   display: flex;

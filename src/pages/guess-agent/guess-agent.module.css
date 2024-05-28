@@ -38,3 +38,35 @@ tr {
 .bad {
   background-color: crimson;
 }
+
+.inputs {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.restartButton {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 5px;
+  margin-left: 1em;
+  margin-top: 7px;
+  background-color: #2d3d59;
+  border: 1px solid aliceblue;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconRestart {
+  transform: scale(1.6);
+  transition: transform 0.5s ease;
+  color: aliceblue;
+}
+.restartButton:hover {
+  .iconRestart {
+    transform: rotate(180deg) scale(1.6);
+  }
+}

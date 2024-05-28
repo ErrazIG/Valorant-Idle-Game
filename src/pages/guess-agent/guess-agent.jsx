@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { TbReload } from "react-icons/tb";
 import AutoCompleteInput from "../../components/searchbar/searchbar";
 import data from "../../data/data.json";
 import style from "./guess-agent.module.css";
@@ -83,20 +84,23 @@ const GuessAgentPage = () => {
 
     fetchAgents();
   }, []);
-  console.log(agentGuess);
+  // console.log(agentGuess);
 
   return (
     <>
       <div className={style.gameAgent}>
         <h2 className={style.gameTitle}>Guess The Agent</h2>
-        <AutoCompleteInput
-          suggestions={suggestions}
-          onSubmit={handleSubmit}
-          disabled={isWinner}
-        />
-        <button onClick={resetGame} className={style.replayButton}>
-          Rejouer
-        </button>
+        <div className={style.inputs}>
+          <AutoCompleteInput
+            suggestions={suggestions}
+            onSubmit={handleSubmit}
+            disabled={isWinner}
+          />
+          <button onClick={resetGame} className={style.restartButton}>
+            <TbReload className={style.iconRestart} title="Rejouer" />
+          </button>
+        </div>
+
         <div className="table-container">
           <table>
             <thead>
