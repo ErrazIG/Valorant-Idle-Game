@@ -24,11 +24,18 @@ const GuessAgentPage = () => {
   console.log(agentGuess);
 
   const handleSubmit = (inputValue) => {
-    const foundAgent = data.agents.find(
-      (agent) => agent.name.toLowerCase() === inputValue.toLowerCase()
-    );
-    if (foundAgent) {
-      setSelectedAgent([...selectedAgent, foundAgent]);
+    if (inputValue) {
+      // Vérifiez si inputValue n'est pas undefined
+      const foundAgent = data.agents.find(
+        (agent) =>
+          agent.nom && agent.nom.toLowerCase() === inputValue.toLowerCase()
+      );
+      console.log(foundAgent);
+      if (foundAgent) {
+        setSelectedAgent([...selectedAgent, foundAgent]);
+      }
+    } else {
+      console.error("La valeur d'entrée est undefined.");
     }
   };
 

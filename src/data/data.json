@@ -7,7 +7,7 @@
       "espèce": "Humaine",
       "rôle": "Dueliste",
       "origine": "Corée du Sud",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Raze",
@@ -16,7 +16,7 @@
       "espèce": "Humaine",
       "rôle": "Dueliste",
       "origine": "Brésil",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Breach",
@@ -25,7 +25,7 @@
       "espèce": "Cyborg",
       "rôle": "Initiateur",
       "origine": "Suède",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Omen",
@@ -34,7 +34,7 @@
       "espèce": "Ombre",
       "rôle": "Contrôleur",
       "origine": "Inconnue",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Brimstone",
@@ -43,7 +43,7 @@
       "espèce": "Humain",
       "rôle": "Contrôleur",
       "origine": "États-Unis",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Phoenix",
@@ -52,7 +52,7 @@
       "espèce": "Humain",
       "rôle": "Dueliste",
       "origine": "Angleterre",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Sage",
@@ -61,7 +61,7 @@
       "espèce": "Humaine",
       "rôle": "Sentinelle",
       "origine": "Chine",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Sova",
@@ -70,7 +70,7 @@
       "espèce": "Humain",
       "rôle": "Initiateur",
       "origine": "Russie",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Viper",
@@ -79,7 +79,7 @@
       "espèce": "Humaine",
       "rôle": "Contrôleur",
       "origine": "États-Unis",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Cypher",
@@ -88,7 +88,7 @@
       "espèce": "Humain",
       "rôle": "Sentinelle",
       "origine": "Maroc",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Reyna",
@@ -97,7 +97,7 @@
       "espèce": "Humaine",
       "rôle": "Dueliste",
       "origine": "Mexique",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Killjoy",
@@ -106,7 +106,7 @@
       "espèce": "Humaine",
       "rôle": "Sentinelle",
       "origine": "Allemagne",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Skye",
@@ -115,7 +115,7 @@
       "espèce": "Humaine",
       "rôle": "Initiateur",
       "origine": "Australie",
-      "année de sortie": "2020"
+      "année_de_sortie": "2020"
     },
     {
       "nom": "Yoru",
@@ -124,7 +124,7 @@
       "espèce": "Radiant",
       "rôle": "Dueliste",
       "origine": "Japon",
-      "année de sortie": "2021"
+      "année_de_sortie": "2021"
     },
     {
       "nom": "Astra",
@@ -133,7 +133,7 @@
       "espèce": "Radiant",
       "rôle": "Contrôleur",
       "origine": "Ghana",
-      "année de sortie": "2021"
+      "année_de_sortie": "2021"
     },
     {
       "nom": "KAY/O",
@@ -142,7 +142,7 @@
       "espèce": "Robot",
       "rôle": "Initiateur",
       "origine": "Inconnue",
-      "année de sortie": "2021"
+      "année_de_sortie": "2021"
     },
     {
       "nom": "Chamber",
@@ -151,7 +151,7 @@
       "espèce": "Humain",
       "rôle": "Sentinelle",
       "origine": "France",
-      "année de sortie": "2021"
+      "année_de_sortie": "2021"
     },
     {
       "nom": "Neon",
@@ -160,7 +160,7 @@
       "espèce": "Radiant",
       "rôle": "Dueliste",
       "origine": "Philippines",
-      "année de sortie": "2022"
+      "année_de_sortie": "2022"
     },
     {
       "nom": "Fade",
@@ -169,7 +169,7 @@
       "espèce": "Radiant",
       "rôle": "Initiateur",
       "origine": "Turquie",
-      "année de sortie": "2022"
+      "année_de_sortie": "2022"
     },
     {
       "nom": "Harbor",
@@ -178,7 +178,7 @@
       "espèce": "Humain",
       "rôle": "Contrôleur",
       "origine": "Inde",
-      "année de sortie": "2022"
+      "année_de_sortie": "2022"
     },
 
     {
@@ -188,7 +188,7 @@
       "espèce": "Humain",
       "rôle": "Initiateur",
       "origine": "États-Unis",
-      "année de sortie": "2023"
+      "année_de_sortie": "2023"
     },
     {
       "nom": "Deadlock",
@@ -197,7 +197,7 @@
       "espèce": "Humain",
       "rôle": "Sentinelle",
       "origine": "Norvège",
-      "année de sortie": "2023"
+      "année_de_sortie": "2023"
     },
     {
       "nom": "Iso",
@@ -206,7 +206,7 @@
       "espèce": "Radiant",
       "rôle": "Dueliste",
       "origine": "Chine",
-      "année de sortie": "2023"
+      "année_de_sortie": "2023"
     },
     {
       "nom": "Clove",
@@ -215,7 +215,7 @@
       "espèce": "Radiant",
       "rôle": "Contrôleur",
       "origine": "Écosse",
-      "année de sortie": "2024"
+      "année_de_sortie": "2024"
     }
   ]
 }

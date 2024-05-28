@@ -54,6 +54,8 @@ const Searchbar = ({ suggestions, onSubmit }) => {
   };
 
   const onSuggestionClick = (suggestion) => {
+    setUserInput("");
+    setFilteredSuggestions([]);
     handleSubmit(suggestion);
   };
 
