@@ -24,10 +24,16 @@ const AutoCompleteInput = ({ suggestions }) => {
   };
 
   const handleSubmit = (input) => {
+    const lowercaseInput = input.toLowerCase(); // Convert user input to lowercase
     if (input === "") {
       setEmptyInputMessage("The input is empty.");
       setNotFoundMessage("");
-    } else if (!filteredSuggestions.includes(input)) {
+    } else if (
+      !filteredSuggestions
+        .map((suggestion) => suggestion.toLowerCase())
+        .includes(lowercaseInput)
+    ) {
+      // Convert suggestions to lowercase and then check for inclusion
       setNotFoundMessage(`The agent “${input}” was not found.`);
       setEmptyInputMessage("");
     } else {
