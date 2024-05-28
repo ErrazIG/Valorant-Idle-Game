@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import style from "./searchbar.module.css";
 
 const Searchbar = ({ suggestions, onSubmit, disabled }) => {
@@ -7,6 +7,8 @@ const Searchbar = ({ suggestions, onSubmit, disabled }) => {
   const [userInput, setUserInput] = useState("");
   const [emptyInputMessage, setEmptyInputMessage] = useState("");
   const [notFoundMessage, setNotFoundMessage] = useState("");
+
+  const inputRef = useRef(null);
 
   const onChange = (e) => {
     e.preventDefault();
@@ -57,6 +59,7 @@ const Searchbar = ({ suggestions, onSubmit, disabled }) => {
     setUserInput("");
     setFilteredSuggestions([]);
     handleSubmit(suggestion);
+    inputRef.current.focus();
   };
 
   const setActiveBorderClass = (suggestions) => {
@@ -81,6 +84,7 @@ const Searchbar = ({ suggestions, onSubmit, disabled }) => {
         onKeyDown={onKeyDown}
         value={userInput}
         placeholder="Name an agent..."
+        ref={inputRef}
         className={`${style.input} ${setActiveBorderClass(
           filteredSuggestions
         )}`} // Add style.activeBorder class to input element
