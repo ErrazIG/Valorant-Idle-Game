@@ -4,7 +4,7 @@
       "nom": "Jett",
       "url": "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Dueliste",
       "origine": "Corée du Sud",
       "année_de_sortie": "2020"
@@ -13,7 +13,7 @@
       "nom": "Raze",
       "url": "https://media.valorant-api.com/agents/f94c3b30-42be-e959-889c-5aa313dba261/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Dueliste",
       "origine": "Brésil",
       "année_de_sortie": "2020"
@@ -58,7 +58,7 @@
       "nom": "Sage",
       "url": "https://media.valorant-api.com/agents/569fdd95-4d10-43ab-ca70-79becc718b46/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Sentinelle",
       "origine": "Chine",
       "année_de_sortie": "2020"
@@ -76,7 +76,7 @@
       "nom": "Viper",
       "url": "https://media.valorant-api.com/agents/707eab51-4836-f488-046a-cda6bf494859/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Contrôleur",
       "origine": "États-Unis",
       "année_de_sortie": "2020"
@@ -94,7 +94,7 @@
       "nom": "Reyna",
       "url": "https://media.valorant-api.com/agents/a3bfb853-43b2-7238-a4f1-ad90e9e46bcc/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Dueliste",
       "origine": "Mexique",
       "année_de_sortie": "2020"
@@ -103,7 +103,7 @@
       "nom": "Killjoy",
       "url": "https://media.valorant-api.com/agents/1e58de9c-4950-5125-93e9-a0aee9f98746/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Sentinelle",
       "origine": "Allemagne",
       "année_de_sortie": "2020"
@@ -112,7 +112,7 @@
       "nom": "Skye",
       "url": "https://media.valorant-api.com/agents/6f2a04ca-43e0-be17-7f36-b3908627744d/displayicon.png",
       "genre": "Femme",
-      "espèce": "Humaine",
+      "espèce": "Humain",
       "rôle": "Initiateur",
       "origine": "Australie",
       "année_de_sortie": "2020"
