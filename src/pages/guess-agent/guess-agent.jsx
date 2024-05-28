@@ -11,26 +11,33 @@ const GuessAgentPage = () => {
   const [agentGuess, setAgentGuess] = useState({});
 
   useEffect(() => {
-    // Fonction pour choisir un élément au hasard dans un tableau
     const getRandomAgent = () => {
       const agents = data.agents;
       const randomIndex = Math.floor(Math.random() * agents.length);
       return agents[randomIndex];
     };
 
-    // Sélectionne un agent au hasard et met à jour l'état
     setAgentGuess(getRandomAgent());
   }, []);
-  console.log(agentGuess);
+
+  const checkMatch = (guess, selected) => {
+    const match = {};
+    Object.keys(guess).forEach((key) => {
+      if (guess[key] === selected[key]) {
+        match[key] = "good";
+      } else {
+        match[key] = "bad";
+      }
+    });
+    return match;
+  };
 
   const handleSubmit = (inputValue) => {
     if (inputValue) {
-      // Vérifiez si inputValue n'est pas undefined
       const foundAgent = data.agents.find(
         (agent) =>
           agent.nom && agent.nom.toLowerCase() === inputValue.toLowerCase()
       );
-      console.log(foundAgent);
       if (foundAgent) {
         setSelectedAgent([...selectedAgent, foundAgent]);
       }
@@ -46,14 +53,12 @@ const GuessAgentPage = () => {
           "https://valorant-api.com/v1/agents?isPlayableCharacter=true"
         );
         if (response.status === 200) {
-          console.log(response.data); // Affichez les données reçues pour vérifier leur structure
           if (Array.isArray(response.data.data)) {
-            // Assurez-vous d'accéder à la propriété data du tableau
             const agentNames = response.data.data
-              .filter((agent) => agent && agent.displayName) // Filtrer les objets qui ont la propriété displayName
+              .filter((agent) => agent && agent.displayName)
               .map((agent) => agent.displayName);
             setAgents(agentNames);
-            setSuggestions(agentNames); // Vous pouvez appliquer des filtres ou des conditions ici
+            setSuggestions(agentNames);
           } else {
             console.error(
               "La réponse de l'API n'est pas un tableau:",
@@ -68,7 +73,7 @@ const GuessAgentPage = () => {
 
     fetchAgents();
   }, []);
-
+  console.log(agentGuess);
   return (
     <>
       <div className={style.gameAgent}>
@@ -87,15 +92,21 @@ const GuessAgentPage = () => {
             </thead>
             <tbody>
               {selectedAgent &&
-                selectedAgent.map((agent, index) => (
-                  <tr key={index}>
-                    <img className={style.imgTable} src={agent.url} alt="" />
-                    <td>{agent.genre}</td>
-                    <td>{agent.espèce}</td>
-                    <td>{agent.rôle}</td>
-                    <td>{agent.année_de_sortie}</td>
-                  </tr>
-                ))}
+                selectedAgent.map((agent, index) => {
+                  const match = checkMatch(agentGuess, agent);
+                  return (
+                    <tr key={index}>
+                      <img className={style.imgTable} src={agent.url} alt="" />
+                      <td className={style[match.nom]}>{agent.nom}</td>
+                      <td className={style[match.genre]}>{agent.genre}</td>
+                      <td className={style[match.espèce]}>{agent.espèce}</td>
+                      <td className={style[match.rôle]}>{agent.rôle}</td>
+                      <td className={style[match.année_de_sortie]}>
+                        {agent.année_de_sortie}
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
