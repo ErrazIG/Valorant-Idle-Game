@@ -30,3 +30,11 @@ tr {
   display: flex;
   align-items: center;
 }
+
+.good {
+  background-color: green;
+}
+
+.bad {
+  background-color: crimson;
+}
