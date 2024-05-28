@@ -55,6 +55,10 @@ const AutoCompleteInput = ({ suggestions }) => {
     handleSubmit(suggestion);
   };
 
+  const setActiveBorderClass = (suggestions) => {
+    return suggestions.length > 0 ? style.activeBorder : ""; // Ajoute la classe style.activeBorder si des suggestions existent, sinon retourne une chaîne vide
+  };
+
   return (
     <div className={style.container}>
       {emptyInputMessage && (
@@ -69,7 +73,9 @@ const AutoCompleteInput = ({ suggestions }) => {
         onKeyDown={onKeyDown}
         value={userInput}
         placeholder="Name an agent..."
-        className={style.input}
+        className={`${style.input} ${setActiveBorderClass(
+          filteredSuggestions
+        )}`} // Ajoute la classe style.activeBorder à l'élément input
       />
       <div className={style.suggestions}>
         {filteredSuggestions.map((suggestion, index) => (
