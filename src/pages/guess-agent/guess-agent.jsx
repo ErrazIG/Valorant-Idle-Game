@@ -23,7 +23,6 @@ const GuessAgentPage = () => {
             const agentNames = response.data.data
               .filter((agent) => agent && agent.displayName) // Filtrer les objets qui ont la propriété displayName
               .map((agent) => agent.displayName);
-            console.log(agentNames);
             setAgents(agentNames);
             setSuggestions(agentNames); // Vous pouvez appliquer des filtres ou des conditions ici
           } else {
