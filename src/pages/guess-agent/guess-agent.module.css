@@ -1,0 +1,8 @@
+.gameAgent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gameTitle {
+  text-align: center;
+}
