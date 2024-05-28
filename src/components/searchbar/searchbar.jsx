@@ -5,17 +5,19 @@ import style from "./searchbar.module.css";
 const AutoCompleteInput = ({ suggestions }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [userInput, setUserInput] = useState("");
-  const [message, setMessage] = useState("");
+  const [emptyInputMessage, setEmptyInputMessage] = useState("");
+  const [notFoundMessage, setNotFoundMessage] = useState("");
 
   const onChange = (e) => {
-    const userInput = e.currentTarget.value;
-    setUserInput(userInput);
-    if (userInput) {
+    const newUserInput = e.currentTarget.value;
+    setUserInput(newUserInput);
+    if (newUserInput) {
       const filtered = suggestions.filter(
         (suggestion) =>
-          suggestion.toLowerCase().indexOf(userInput.toLowerCase()) === 0
+          suggestion.toLowerCase().indexOf(newUserInput.toLowerCase()) === 0
       );
       setFilteredSuggestions(filtered);
+      setEmptyInputMessage(""); // Clear empty input message when user starts typing a new search
     } else {
       setFilteredSuggestions([]);
     }
@@ -23,7 +25,14 @@ const AutoCompleteInput = ({ suggestions }) => {
 
   const handleSubmit = (input) => {
     if (input === "") {
-      setMessage("L'input est vide.");
+      setEmptyInputMessage("The input is empty.");
+      setNotFoundMessage("");
+    } else if (!filteredSuggestions.includes(input)) {
+      setNotFoundMessage(`The agent “${input}” was not found.`);
+      setEmptyInputMessage("");
+    } else {
+      setEmptyInputMessage("");
+      setNotFoundMessage("");
     }
     setUserInput("");
     setFilteredSuggestions([]);
@@ -42,7 +51,12 @@ const AutoCompleteInput = ({ suggestions }) => {
 
   return (
     <div className={style.container}>
-      {message && <div className={style.message}>{message}</div>}
+      {emptyInputMessage && (
+        <div className={style.message}>{emptyInputMessage}</div>
+      )}
+      {notFoundMessage && (
+        <div className={style.message}>{notFoundMessage}</div>
+      )}
       <input
         type="text"
         onChange={onChange}
