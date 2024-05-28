@@ -1,15 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AutoCompleteInput from "../../components/searchbar/searchbar";
+import data from "../../data/data.json";
 import style from "./guess-agent.module.css";
 
 const GuessAgentPage = () => {
   const [agents, setAgents] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+  const [selectedAgent, setSelectedAgent] = useState([]);
 
   const handleSubmit = (inputValue) => {
-    // Faire quelque chose avec la valeur de l'entrée
-    console.log("Valeur de l'entrée:", inputValue);
+    const foundAgent = data.agents.find(
+      (agent) => agent.name.toLowerCase() === inputValue.toLowerCase()
+    );
+    if (foundAgent) {
+      setSelectedAgent([...selectedAgent, foundAgent]);
+    }
   };
 
   useEffect(() => {
@@ -47,6 +53,31 @@ const GuessAgentPage = () => {
       <div className={style.gameAgent}>
         <h2 className={style.gameTitle}>Guess The Agent</h2>
         <AutoCompleteInput suggestions={suggestions} onSubmit={handleSubmit} />
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th>Genre</th>
+                <th>Espèce</th>
+                <th>Rôle</th>
+                <th>Année de sortie</th>
+              </tr>
+            </thead>
+            <tbody>
+              {selectedAgent &&
+                selectedAgent.map((agent, index) => (
+                  <tr key={index}>
+                    <img className={style.imgTable} src={agent.url} alt="" />
+                    <td>{agent.genre}</td>
+                    <td>{agent.espèce}</td>
+                    <td>{agent.rôle}</td>
+                    <td>{agent.année_de_sortie}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );

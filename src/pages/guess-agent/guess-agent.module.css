@@ -6,3 +6,27 @@
 .gameTitle {
   text-align: center;
 }
+
+.table-container {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+
+th,
+td,
+tr {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.imgTable {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
