@@ -8,6 +8,20 @@ const GuessAgentPage = () => {
   const [agents, setAgents] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedAgent, setSelectedAgent] = useState([]);
+  const [agentGuess, setAgentGuess] = useState({});
+
+  useEffect(() => {
+    // Fonction pour choisir un élément au hasard dans un tableau
+    const getRandomAgent = () => {
+      const agents = data.agents;
+      const randomIndex = Math.floor(Math.random() * agents.length);
+      return agents[randomIndex];
+    };
+
+    // Sélectionne un agent au hasard et met à jour l'état
+    setAgentGuess(getRandomAgent());
+  }, []);
+  console.log(agentGuess);
 
   const handleSubmit = (inputValue) => {
     const foundAgent = data.agents.find(
