@@ -9,6 +9,7 @@ const Searchbar = ({ suggestions, onSubmit }) => {
   const [notFoundMessage, setNotFoundMessage] = useState("");
 
   const onChange = (e) => {
+    e.preventDefault();
     const newUserInput = e.currentTarget.value;
     setUserInput(newUserInput);
     if (newUserInput) {
