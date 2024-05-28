@@ -1,10 +1,15 @@
 .homeInfoText {
   margin-bottom: 1.5em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gameList {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   gap: 2em;
 }
 
@@ -14,8 +19,8 @@
 }
 
 .gameCard {
-  width: 270px;
-  height: 180px;
+  width: 240px;
+  height: 125px;
   padding: 1em;
   border: 1px solid aliceblue;
   border-radius: 10px;
@@ -28,7 +33,7 @@
 }
 
 .cardText {
-  font-size: 2.5em;
+  font-size: 1.3em;
 }
 
 .gameCard:hover {

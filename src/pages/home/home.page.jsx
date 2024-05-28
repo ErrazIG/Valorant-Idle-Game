@@ -16,7 +16,7 @@ const HomePage = () => {
         >
           <p className={style.cardText}>GUESS THE AGENT</p>
         </Link>
-        <Link className={`${style.gameLink} ${style.gameCard}`}>
+        {/* <Link className={`${style.gameLink} ${style.gameCard}`}>
           <p className={style.cardText}>COMING SOON</p>
         </Link>
         <Link className={`${style.gameLink} ${style.gameCard}`}>
@@ -24,7 +24,7 @@ const HomePage = () => {
         </Link>
         <Link className={`${style.gameLink} ${style.gameCard}`}>
           <p className={style.cardText}>COMING SOON</p>
-        </Link>
+        </Link> */}
       </div>
     </>
   );
