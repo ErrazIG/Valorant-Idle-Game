@@ -30,3 +30,7 @@ input {
 .suggestionItem:last-child {
   border-bottom: 1px solid #ccc;
 }
+.message {
+  color: crimson;
+  text-align: center;
+}

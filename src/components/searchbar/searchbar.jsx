@@ -24,10 +24,6 @@ const AutoCompleteInput = ({ suggestions }) => {
   const handleSubmit = (input) => {
     if (input === "") {
       setMessage("L'input est vide.");
-    } else if (suggestions.includes(input)) {
-      setMessage(`"${input}" est dans la liste des suggestions.`);
-    } else {
-      setMessage(`"${input}" n'est pas dans la liste des suggestions.`);
     }
     setUserInput("");
     setFilteredSuggestions([]);
