@@ -42,7 +42,7 @@ const GuessAgentPage = () => {
           agent.nom && agent.nom.toLowerCase() === inputValue.toLowerCase()
       );
       if (foundAgent) {
-        setSelectedAgent([...selectedAgent, foundAgent]);
+        setSelectedAgent([foundAgent, ...selectedAgent]);
         setIsWinner(agentGuess.nom === foundAgent.nom);
       }
     } else {
