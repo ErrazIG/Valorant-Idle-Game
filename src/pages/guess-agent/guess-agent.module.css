@@ -59,6 +59,7 @@ tr {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .iconRestart {
   transform: scale(1.6);
