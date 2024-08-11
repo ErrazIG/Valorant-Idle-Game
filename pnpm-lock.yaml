@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.7.2
         version: 1.7.2
+      canvas-confetti:
+        specifier: ^1.9.3
+        version: 1.9.3
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -564,6 +567,9 @@ packages:
 
   caniuse-lite@1.0.30001624:
     resolution: {integrity: sha512-0dWnQG87UevOCPYaOR49CBcLBwoZLpws+k6W37nLjWUhumP1Isusj0p2u+3KhjNloRWK9OKMgjBBzPujQHw4nA==}
+
+  canvas-confetti@1.9.3:
+    resolution: {integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==}
 
   chalk@2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -1919,6 +1925,8 @@ snapshots:
   callsites@3.1.0: {}
 
   caniuse-lite@1.0.30001624: {}
+
+  canvas-confetti@1.9.3: {}
 
   chalk@2.4.2:
     dependencies:

@@ -1,9 +1,22 @@
 import axios from "axios";
+import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { TbReload } from "react-icons/tb";
+import { useNavigate } from "react-router-dom"; // Importez useNavigate
 import AutoCompleteInput from "../../components/searchbar/searchbar";
 import data from "../../data/data.json";
 import style from "./guess-agent.module.css";
+
+// Composant pour la modal
+const WinModal = ({ onReplay, onMainMenu }) => (
+  <div className={style.modal}>
+    <div className={style.modalContent}>
+      <h2>Félicitations, vous avez gagné !</h2>
+      <button onClick={onReplay}>Rejouer</button>
+      <button onClick={onMainMenu}>Menu Principal</button>
+    </div>
+  </div>
+);
 
 const GuessAgentPage = () => {
   const [agents, setAgents] = useState([]);
@@ -11,8 +24,10 @@ const GuessAgentPage = () => {
   const [selectedAgent, setSelectedAgent] = useState([]);
   const [agentGuess, setAgentGuess] = useState({});
   const [isWinner, setIsWinner] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  // Cette fonction est déplacée ici pour être accessible dans resetGame
+  const navigate = useNavigate(); // Utilisez useNavigate pour créer une fonction de navigation
+
   const getRandomAgent = () => {
     const agents = data.agents;
     const randomIndex = Math.floor(Math.random() * agents.length);
@@ -35,6 +50,33 @@ const GuessAgentPage = () => {
     return match;
   };
 
+  const handleWin = () => {
+    const duration = 2.5 * 1000;
+    const end = Date.now() + duration;
+
+    const frame = () => {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+
+    frame();
+    setShowModal(true); // Afficher la modal
+  };
+
   const handleSubmit = (inputValue) => {
     if (inputValue) {
       const foundAgent = data.agents.find(
@@ -43,18 +85,26 @@ const GuessAgentPage = () => {
       );
       if (foundAgent) {
         setSelectedAgent([foundAgent, ...selectedAgent]);
-        setIsWinner(agentGuess.nom === foundAgent.nom);
+        const isWinner = agentGuess.nom === foundAgent.nom;
+        setIsWinner(isWinner);
+        if (isWinner) {
+          handleWin();
+        }
       }
     } else {
       console.error("La valeur d'entrée est undefined.");
     }
   };
 
-  // Fonction pour réinitialiser le jeu
   const resetGame = () => {
     setSelectedAgent([]);
     setAgentGuess(getRandomAgent());
     setIsWinner(false);
+    setShowModal(false); // Cacher la modal
+  };
+
+  const goToMainMenu = () => {
+    navigate("/"); // Utilisez navigate pour rediriger vers la route de test
   };
 
   useEffect(() => {
@@ -84,7 +134,6 @@ const GuessAgentPage = () => {
 
     fetchAgents();
   }, []);
-  // console.log(agentGuess);
 
   return (
     <>
@@ -118,7 +167,13 @@ const GuessAgentPage = () => {
                   const match = checkMatch(agentGuess, agent);
                   return (
                     <tr key={index}>
-                      <img className={style.imgTable} src={agent.url} alt="" />
+                      <td>
+                        <img
+                          className={style.imgTable}
+                          src={agent.url}
+                          alt=""
+                        />
+                      </td>
                       <td className={style[match.genre]}>{agent.genre}</td>
                       <td className={style[match.espèce]}>{agent.espèce}</td>
                       <td className={style[match.rôle]}>{agent.rôle}</td>
@@ -132,6 +187,7 @@ const GuessAgentPage = () => {
           </table>
         </div>
       </div>
+      {showModal && <WinModal onReplay={resetGame} onMainMenu={goToMainMenu} />}
     </>
   );
 };
